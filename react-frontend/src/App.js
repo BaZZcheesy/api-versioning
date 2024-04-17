@@ -5,57 +5,11 @@ import React, { useState } from 'react';
 function App() {
   const [responseOut, setResponseOut] = useState("");
 
-  const handleSubmitV1 = event => {
-    event.preventDefault();
-    fetch("http://localhost:8080/api/hello", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "API-VERSION": "1"
-      },
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      return response.text();
-    })
-    .then(data => {
-      setResponseOut(data);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-      setResponseOut("Error fetching data");
-    });
-  }
 
-  const handleSubmitV2 = event => {
-    event.preventDefault();
-    fetch("http://localhost:8080/api/hello", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "API-VERSION": "2"
-      },
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      return response.text();
-    })
-    .then(data => {
-      setResponseOut(data);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-      setResponseOut("Error fetching data");
-    });
-  }
 
   const handleSubmitV3 = event => {
     event.preventDefault();
-    fetch("http://localhost:8080/api/v1/hello")
+    fetch("")
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to fetch data');
@@ -70,24 +24,7 @@ function App() {
       setResponseOut("Error fetching data");
     });
   }
-
-  const handleSubmitV4 = event => {
-    event.preventDefault();
-    fetch("http://localhost:8080/api/v2/hello")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      return response.text();
-    })
-    .then(data => {
-      setResponseOut(data);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-      setResponseOut("Error fetching data");
-    });
-  }
+  
 
   return (
     <div className="App">
